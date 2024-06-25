@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "customerName": "John Doe",
+    "product": "Laptop",
+    "quantity": 1,
+    "price": 1200
+  },
+  {
+    "id": 2,
+    "customerName": "Jola Shade",
+    "product": "Android",
+    "quantity": 4,
+    "price": 1000
+  },
+  {
+    "customerName": "Oluwashina Ojo",
+    "product": "Samsung",
+    "quantity": 400,
+    "price": 5000,
+    "id": 3
+  }
+]
