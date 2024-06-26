@@ -5,7 +5,9 @@
     "item_name": "Iphone11 pro max",
     "quantity": 1,
     "price": 1200,
-    "status": "pending"
+    "payment_status": "paid",
+    "status": "pending",
+    "created_at": "Aug 18, 2024"
   },
   {
     "id": 2,
@@ -13,14 +15,18 @@
     "item_name": "Baileys Original 70cl",
     "quantity": 4,
     "price": 1000,
-    "status": "delivered"
+    "payment_status": "paid",
+    "status": "in_transit",
+     "created_at": "Jan 18, 2023"
   },
   {
     "customerName": "Oluwashina Ojo",
     "item_name": "Oraimo Powerbank",
     "quantity": 400,
     "price": 5000,
+    "payment_status": "paid",
     "id": 3,
-    "status": "processing"
+    "status": "delivered",
+    "created_at": "Feb 18, 2023"
   }
 ]

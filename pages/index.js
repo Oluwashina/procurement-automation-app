@@ -8,6 +8,7 @@ import box_icon from '../assets/box.svg';
 import lorry_icon from '../assets/lorry.svg';
 import bag_icon from '../assets/bag.svg';
 import Image from "next/image";
+import OrderList from "@/components/OrderList";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -96,6 +97,8 @@ export default function Home() {
 
           <div className={styles.ordersDiv}>
             <h6 className={styles.ordersTitle}>All Orders</h6>
+             
+             <OrderList />
           </div>
      
       </div>
