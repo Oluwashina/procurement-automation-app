@@ -9,7 +9,6 @@ const OrderList = () => {
     const [openDropdownId, setOpenDropdownId] = useState(null);
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
 
     const toggleDropdown = (id) => {
@@ -35,6 +34,25 @@ const OrderList = () => {
         return result;
       };
 
+      const getStatusTest = (val) => {
+        let result;
+        switch (val) {
+          case "pending":
+            result = 'Pending'
+            break;
+          case "in_transit":
+            result = 'In Transit';
+            break;
+          case "delivered":
+            result = 'Delivered';
+            break;
+          default:
+            result = "Pending";
+            break;
+        }
+        return result;
+      };
+
     useEffect(() => {
     const fetchOrders = async () => {
         try {
@@ -44,11 +62,11 @@ const OrderList = () => {
             setOrders(data);
             setLoading(false);
         } else {
-            setError('Failed to fetch orders.');
+            console.log('Failed to fetch orders.');
             setLoading(false);
         }
         } catch (error) {
-        setError('Failed to fetch orders.');
+        console.log('Failed to fetch orders.');
         setLoading(false);
         }
     };
@@ -72,7 +90,7 @@ const OrderList = () => {
                         scope="col"
                         className={styles.tablehead}
                     >
-                        Date
+                       Item Name
                     </th>
                     <th
                         scope="col"
@@ -80,6 +98,13 @@ const OrderList = () => {
                     >
                        Item Qty
                     </th>
+                    <th
+                        scope="col"
+                        className={styles.tablehead}
+                    >
+                        Date Added
+                    </th>
+                    
                     <th
                         scope="col"
                         className={styles.tablehead}
@@ -112,21 +137,25 @@ const OrderList = () => {
                                    </div>
                                 </td>
                                 <td>
-                                  {order.created_at}
+                                  {order.item_name}
+                                </td>
+                                
+                                <td>
+                                 {order.quantity} Item(s)
                                 </td>
                                 <td>
-                                 {order.quantity} Items
+                                  {order.created_at}
                                 </td>
-                                <td className={styles.badgePaid}>
+                                <td className={`${order.payment_status === 'paid' ? styles.badgePaid: styles.badgePending }`}>
                                     {order.payment_status}
                                 </td>
                                 <td>
                                     <div 
                                      className={getStatusBg(
-                                        order?.status || "N/A"
+                                        order?.status
                                       )}
                                             >
-                                         {order.status}
+                                         {getStatusTest(order.status)}
                                     </div>
                                 </td>
                                 <td>

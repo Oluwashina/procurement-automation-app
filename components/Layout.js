@@ -6,6 +6,9 @@ import book_open from '../assets/book-open.svg';
 import logo from '../assets/logo.svg';
 import home_icon from '../assets/home.svg';
 import order_icon from '../assets/bag-orange.svg';
+import box_icon from '../assets/box.svg';
+import customer_icon from '../assets/customer.svg';
+import analytics_icon from '../assets/chart-up.svg';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,7 +30,7 @@ const Layout = ({children}) => {
                 </Link>
 
                 <Link href={"/"}  className={styles.sidebarMenu}>
-                  <Image src={home_icon} alt="Home Icon" quality={100} />
+                  <Image src={box_icon} alt="box Icon" quality={100} />
                   <p>Products</p>
                 </Link>
 
@@ -37,12 +40,12 @@ const Layout = ({children}) => {
                 </Link>
 
                 <Link href={"/"}  className={styles.sidebarMenu}>
-                  <Image src={home_icon} alt="Home Icon" quality={100} />
+                  <Image src={customer_icon} alt="customer Icon" quality={100} />
                   <p>Customers</p>
                 </Link>
 
                 <Link href={"/"}  className={styles.sidebarMenu}>
-                  <Image src={home_icon} alt="Home Icon" quality={100} />
+                  <Image src={analytics_icon} alt="analytics Icon" quality={100} />
                   <p>Analytics</p>
                 </Link>
 

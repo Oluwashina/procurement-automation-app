@@ -1,0 +1,82 @@
+
+.modal{
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.modalDiv{
+    position: relative;
+    padding: 32px;
+    max-width: 572px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.modalContent{
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding: 24px 32px;
+    transition: all 0.3s ease-in-out;
+}
+
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title{
+    color: #101928;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.subtitle{
+    color: #8C94A6;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.closeDiv{
+    cursor: pointer;
+}
+
+.modal.enter_done{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal.exit{
+    opacity: 0;
+}
+
+.modal.enter_done .modalContent{
+    transform: translateY(0);
+}
+
+
+.modal.exit .modalContent{
+    transform: translateY(-200px);
+}

@@ -1,3 +1,5 @@
+
+import React,{useState} from 'react'
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Order.module.css";
@@ -9,11 +11,20 @@ import lorry_icon from '../assets/lorry.svg';
 import bag_icon from '../assets/bag.svg';
 import Image from "next/image";
 import OrderList from "@/components/OrderList";
+import ModalComponent from "@/components/Modals/modal";
+import OrderForm from '@/components/OrderForm';
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const [isShow, setIsShow] = useState(false);
+
+  const showModal = () =>{
+   setIsShow(!isShow)
+  }
+
   return (
     <>
       <Head>
@@ -22,6 +33,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <ModalComponent
+        title="New Order"
+        subtitle="Create a new purchase order"
+        isOpen={isShow}
+        onClose={showModal}
+      >
+        <div>
+            <OrderForm onClose={showModal} />
+         </div>
+       </ModalComponent>
+
       <div className={`${inter.className}`}>
           <div className={styles.container}>
             <div>
@@ -30,7 +53,7 @@ export default function Home() {
             </div>
             <div className={styles.container_cta}>
                 <div>
-                  <button className={styles.primary_btn}>
+                  <button onClick={showModal} className={styles.primary_btn}>
                     <Image src={add_icon} alt="Add Icon" quality={100} />
                     New Order
                   </button>

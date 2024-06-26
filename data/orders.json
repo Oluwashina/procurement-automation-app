@@ -7,7 +7,7 @@
     "price": 1200,
     "payment_status": "paid",
     "status": "pending",
-    "created_at": "Aug 18, 2024"
+    "created_at": "18/08/2024"
   },
   {
     "id": 2,
@@ -15,18 +15,38 @@
     "item_name": "Baileys Original 70cl",
     "quantity": 4,
     "price": 1000,
-    "payment_status": "paid",
+    "payment_status": "pending",
     "status": "in_transit",
-     "created_at": "Jan 18, 2023"
+    "created_at": "18/02/2023"
   },
   {
     "customerName": "Oluwashina Ojo",
     "item_name": "Oraimo Powerbank",
-    "quantity": 400,
+    "quantity": 40,
     "price": 5000,
     "payment_status": "paid",
     "id": 3,
     "status": "delivered",
-    "created_at": "Feb 18, 2023"
+    "created_at": "18/02/2023"
+  },
+  {
+    "item_name": "Coke 35cl",
+    "customerName": "Joe Biden",
+    "quantity": 12,
+    "price": 500,
+    "created_at": "26/06/2024",
+    "payment_status": "pending",
+    "status": "pending",
+    "id": 4
+  },
+  {
+    "item_name": "Macbook pro 2017",
+    "customerName": "Tofunmi Ogunlakin",
+    "quantity": 1,
+    "price": 1200000,
+    "created_at": "27/06/2024",
+    "payment_status": "pending",
+    "status": "pending",
+    "id": 5
   }
 ]
