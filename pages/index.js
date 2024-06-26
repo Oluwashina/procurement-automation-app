@@ -1,7 +1,14 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Order.module.css";
-import OrderList from "@/components/OrderList";
+import add_icon from '../assets/add.svg';
+import compass_icon from '../assets/compass.svg';
+import arrow_up from '../assets/arrow-up.svg';
+import box_icon from '../assets/box.svg';
+import lorry_icon from '../assets/lorry.svg';
+import bag_icon from '../assets/bag.svg';
+import Image from "next/image";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +21,83 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <h1>Procurement Orders</h1>
-        <OrderList />
+      <div className={`${inter.className}`}>
+          <div className={styles.container}>
+            <div>
+              <h6 className={styles.title}>Orders</h6>
+              <p className={styles.subtitle}>Showing data over the last 30 days</p>
+            </div>
+            <div className={styles.container_cta}>
+                <div>
+                  <button className={styles.primary_btn}>
+                    <Image src={add_icon} alt="Add Icon" quality={100} />
+                    New Order
+                  </button>
+                </div>
+                <div>
+                  <button className={styles.secondary_btn}>
+                    <Image src={compass_icon} alt="Compass Icon" quality={100} />
+                    Track Order
+                  </button>
+                </div>
+            </div>
+          </div>
+
+          <div className={styles.cardLayout}>
+            <div className={styles.card}>
+               <div>
+                  <h6>Total Orders</h6>
+                  <h4>93,000</h4>
+                  <div className={styles.cardBadgeDiv}>
+                      <div className={styles.cardBagde}>
+                        <Image src={arrow_up} alt="Arrow Up Icon" quality={100} />
+                        5%
+                      </div>
+                      <p>high today</p>
+                  </div>
+               </div>
+               <div className={styles.cardIcon}>
+                  <Image src={box_icon} alt="Box Icon" quality={100} />
+               </div>
+            </div>
+            <div className={styles.card}>
+               <div>
+                  <h6>Orders Fulfilled</h6>
+                  <h4>80,000</h4>
+                  <div className={styles.cardBadgeDiv}>
+                      <div className={styles.cardBagde}>
+                        <Image src={arrow_up} alt="Arrow Up Icon" quality={100} />
+                        5%
+                      </div>
+                      <p>high today</p>
+                  </div>
+               </div>
+               <div className={styles.cardIcon}>
+                  <Image src={bag_icon} alt="bag Icon" quality={100} />
+               </div>
+            </div>
+            <div className={styles.card}>
+               <div>
+                  <h6>Orders In Transit</h6>
+                  <h4>30,000</h4>
+                  <div className={styles.cardBadgeDiv}>
+                      <div className={styles.cardBagde}>
+                        <Image src={arrow_up} alt="Arrow Up Icon" quality={100} />
+                        5%
+                      </div>
+                      <p>high today</p>
+                  </div>
+               </div>
+               <div className={styles.cardIcon}>
+                  <Image src={lorry_icon} alt="Lorry Icon" quality={100} />
+               </div>
+            </div>
+          </div>
+
+          <div className={styles.ordersDiv}>
+            <h6 className={styles.ordersTitle}>All Orders</h6>
+          </div>
+     
       </div>
     </>
   );
