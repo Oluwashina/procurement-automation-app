@@ -1,6 +1,7 @@
 
 import React,{useState} from 'react'
 import styles from "../styles/Order.module.css";
+import { useOrders } from '@/context/OrdersContext';
 
 const OrderForm = ({order,onClose}) => {
 
@@ -10,6 +11,7 @@ const OrderForm = ({order,onClose}) => {
     const [quantity, setQuantity] = useState(order ? order.quantity : 1)
     const [price, setPrice] = useState(order? order.price : 0)
     const [loader, setLoader] = useState(false)
+    const { fetchOrders } = useOrders()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,6 +44,7 @@ const OrderForm = ({order,onClose}) => {
             if (response.ok) {
                 setLoader(false);
                 onClose();
+                await fetchOrders()
                 alert('Order updated successfully!');
             } else {
                 setLoader(false);
@@ -83,6 +86,7 @@ const OrderForm = ({order,onClose}) => {
                   setPrice(0);
                   setLoader(false);
                   onClose();
+                  await fetchOrders();
                   alert('Order created successfully!');
                 } else {
                   setLoader(false);

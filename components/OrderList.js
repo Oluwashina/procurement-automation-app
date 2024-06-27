@@ -7,13 +7,15 @@ import ModalComponent from './Modals/modal';
 import OrderForm from './OrderForm';
 import DrawerComponent from './Drawers/drawer';
 import OrderDetail from './OrderDetail';
+import { useOrders } from '@/context/OrdersContext';
 
 const OrderList = () => {
 
     const [openDropdownId, setOpenDropdownId] = useState(null);
-    const [orders, setOrders] = useState([]);
+
+    const {orders, fetchOrders} = useOrders()
+
     const [order, setOrder] = useState({});
-    const [loading, setLoading] = useState(false);
     const [loader, setLoader] = useState(false);
     const [orderId, setOrderId] = useState(null);
 
@@ -34,22 +36,6 @@ const OrderList = () => {
         setIsEditShow(!isEditShow)
     }
 
-    const fetchOrders = async () => {
-        try {
-        const response = await fetch('/api/orders');
-        if (response.ok) {
-            const data = await response.json();
-            setOrders(data);
-            setLoading(false);
-        } else {
-            console.log('Failed to fetch orders.');
-            setLoading(false);
-        }
-        } catch (error) {
-        console.log('Failed to fetch orders.');
-        setLoading(false);
-        }
-    };
 
     const toggleDropdown = (id) => {
         setOpenDropdownId((prevId) => (prevId === id ? null : id));
@@ -119,7 +105,7 @@ const OrderList = () => {
                 setLoader(false)
                 setIsShow(!isShow)
                 setOrderId(null)
-                fetchOrders();
+                await fetchOrders();
             } else {
                 setLoader(false)
               const data = await response.json();
@@ -132,10 +118,6 @@ const OrderList = () => {
       }
       
     
-
-    useEffect(() => {
-     fetchOrders();
-    }, []);
 
     return ( 
         <>  
