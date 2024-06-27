@@ -1,17 +1,12 @@
 
+import React,{useState} from 'react'
+import styles from "../styles/Order.module.css";
 
-
-const OrderDetail = ({id}) => {
-
-    // This would be fetched from an API in a real application
-    const order = { id, name: `Order ${id}`, details: 'Order details here' };
+const OrderDetail = () => {
 
     return ( 
         <>
-        <div>
-            <h2>{order.name}</h2>
-            <p>{order.details}</p>
-        </div>
+          
         </>
      );
 }

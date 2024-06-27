@@ -3,13 +3,45 @@ import Link from "next/link";
 import styles from "../styles/Order.module.css";
 import vert_icon from '../assets/vert.svg';
 import Image from "next/image";
+import ModalComponent from './Modals/modal';
+import OrderForm from './OrderForm';
 
 const OrderList = () => {
 
     const [openDropdownId, setOpenDropdownId] = useState(null);
     const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [order, setOrder] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [loader, setLoader] = useState(false);
+    const [orderId, setOrderId] = useState(null);
 
+    const [isShow, setIsShow] = useState(false);
+    const [isEditShow, setIsEditShow] = useState(false);
+
+    const showModal = () =>{
+     setIsShow(!isShow)
+    }
+
+    const showEditModal = () =>{
+        setIsEditShow(!isEditShow)
+    }
+
+    const fetchOrders = async () => {
+        try {
+        const response = await fetch('/api/orders');
+        if (response.ok) {
+            const data = await response.json();
+            setOrders(data);
+            setLoading(false);
+        } else {
+            console.log('Failed to fetch orders.');
+            setLoading(false);
+        }
+        } catch (error) {
+        console.log('Failed to fetch orders.');
+        setLoading(false);
+        }
+    };
 
     const toggleDropdown = (id) => {
         setOpenDropdownId((prevId) => (prevId === id ? null : id));
@@ -53,29 +85,76 @@ const OrderList = () => {
         return result;
       };
 
-    useEffect(() => {
-    const fetchOrders = async () => {
-        try {
-        const response = await fetch('/api/orders');
-        if (response.ok) {
-            const data = await response.json();
-            setOrders(data);
-            setLoading(false);
-        } else {
-            console.log('Failed to fetch orders.');
-            setLoading(false);
-        }
-        } catch (error) {
-        console.log('Failed to fetch orders.');
-        setLoading(false);
-        }
-    };
+      const handleDeleteOrder = (id) =>{
+        setOrderId(id)
+        showModal()
+      }
 
-    fetchOrders();
+      const handleEditOrder = (order) =>{
+        setOrder(order)
+        showEditModal()
+      }
+
+      const deletePurchaseOrder = async () =>{
+        setLoader(true)
+        try {
+            const response = await fetch(`/api/orders/${orderId}`, {
+              method: 'DELETE',
+            });
+      
+            if (response.ok) {
+                setLoader(false)
+                setIsShow(!isShow)
+                setOrderId(null)
+                fetchOrders();
+            } else {
+                setLoader(false)
+              const data = await response.json();
+              console.log(data.message);
+            }
+          } catch (err) {
+            setLoader(false)
+            console.log('Failed to delete order');
+          }
+      }
+      
+    
+
+    useEffect(() => {
+     fetchOrders();
     }, []);
 
     return ( 
         <>  
+
+        <ModalComponent
+        title="Edit Order"
+        subtitle="Update your purchase order"
+        isOpen={isEditShow}
+        onClose={showEditModal}
+      >
+        <div>
+            <OrderForm order={order} onClose={showEditModal} />
+         </div>
+       </ModalComponent>
+
+        <ModalComponent
+        title="Delete Order"
+        subtitle=""
+        isOpen={isShow}
+        onClose={showModal}
+      >
+        <div>
+            <p className={styles.deleteTitle}>Are you sure you want to delete this order?</p>
+
+            <div className={styles.deleteDiv}>
+                <button onClick={()=>setIsShow(false)} className={styles.primary_btn}>No</button>
+                <button disabled={loader} onClick={deletePurchaseOrder} className={styles.secondary_btn}>Yes</button>
+            </div>
+            
+         </div>
+       </ModalComponent>
+
         <div className={styles.orderTable}>
             <table className={styles.table}>
               <thead>
@@ -164,8 +243,9 @@ const OrderList = () => {
                                       
                                         {openDropdownId === order.id &&  
                                         <ul className={styles.moreDiv}>
-                                            <li>Edit Order</li>
-                                            <li>Delete Order</li>
+                                            <li>View Order</li>
+                                            <li onClick={() => handleEditOrder(order)}>Edit Order</li>
+                                            <li onClick={() => handleDeleteOrder(order.id)}>Delete Order</li>
                                         </ul>
                                         }
                                     </div>

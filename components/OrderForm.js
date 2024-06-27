@@ -2,14 +2,14 @@
 import React,{useState} from 'react'
 import styles from "../styles/Order.module.css";
 
-const OrderForm = ({onClose}) => {
+const OrderForm = ({order,onClose}) => {
 
-    const [itemName, setItemName] = useState("")
-    const [customerName, setCustomerName] = useState("")
-    const [quantity, setQuantity] = useState(1)
-    const [price, setPrice] = useState(0)
+   
+    const [itemName, setItemName] = useState(order? order.item_name: "")
+    const [customerName, setCustomerName] = useState(order ? order.customerName: "")
+    const [quantity, setQuantity] = useState(order ? order.quantity : 1)
+    const [price, setPrice] = useState(order? order.price : 0)
     const [loader, setLoader] = useState(false)
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,43 +19,83 @@ const OrderForm = ({onClose}) => {
             alert("Please fill in all fields");
             return;
         }
+        // check if order exist
+        if(order){
 
-        setLoader(true)
-        const newOrder = {
-            item_name: itemName,
-            customerName,
-            quantity: parseInt(quantity),
-            price: parseFloat(price),
-            created_at: new Date().toLocaleDateString(),
-            payment_status: 'pending',
-            status: 'pending',
-        };
-        console.log(newOrder)
-        try {
-            const response = await fetch('/api/orders', {
-              method: 'POST',
+            setLoader(true)
+            const updatedOrder = {
+                item_name: itemName,
+                customerName,
+                quantity: parseInt(quantity),
+                price: parseFloat(price),
+            };
+            console.log(updatedOrder)
+          try {
+            const response = await fetch(`/api/orders/${order.id}`, {
+              method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify(newOrder),
+              body: JSON.stringify(updatedOrder),
             });
       
             if (response.ok) {
-              setCustomerName('');
-              setItemName('');
-              setQuantity(1);
-              setPrice(0);
-              setLoader(false);
-              onClose();
-              alert('Order created successfully!');
+                setLoader(false);
+                onClose();
+                alert('Order updated successfully!');
             } else {
-              setLoader(false);
-              alert('Failed to create order.');
+                setLoader(false);
+              const data = await response.json();
+              console.log(data.message);
             }
-          } catch (error) {
+          } catch (err) {
             setLoader(false);
-            alert('Failed to create order.');
+            console.log('Failed to update order');
           }
+
+        }
+        else{
+
+            setLoader(true)
+            const newOrder = {
+                item_name: itemName,
+                customerName,
+                quantity: parseInt(quantity),
+                price: parseFloat(price),
+                created_at: new Date().toLocaleDateString(),
+                payment_status: 'pending',
+                status: 'pending',
+            };
+            console.log(newOrder)
+            try {
+                const response = await fetch('/api/orders', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(newOrder),
+                });
+          
+                if (response.ok) {
+                  setCustomerName('');
+                  setItemName('');
+                  setQuantity(1);
+                  setPrice(0);
+                  setLoader(false);
+                  onClose();
+                  alert('Order created successfully!');
+                } else {
+                  setLoader(false);
+                  alert('Failed to create order.');
+                }
+              } catch (error) {
+                setLoader(false);
+                alert('Failed to create order.');
+              }
+        }
+
+
+       
         
       };
 
@@ -82,7 +122,7 @@ const OrderForm = ({onClose}) => {
                 <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} min={1} />
             </div>
            
-            <button disabled={loader} type="submit">Create Order</button>
+            <button disabled={loader} type="submit">{order ? 'Update Order' : 'Create Order'}</button>
          </form>
         </>
      );

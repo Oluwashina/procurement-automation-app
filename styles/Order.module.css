@@ -35,7 +35,12 @@
     transition: 0.2s;
     display: flex;
     align-items: center;
-    gap: 5px
+    gap: 5px;
+    transition: transform 0.3s ease;
+}
+
+.primary_btn:hover,.secondary_btn:hover{
+    transform: translateY(-5px);
 }
 
 .secondary_btn{
@@ -50,7 +55,13 @@
     transition: 0.2s;
     display: flex;
     align-items: center;
-    gap: 5px
+    gap: 5px;
+    transition: transform 0.3s ease;
+}
+
+.secondary_btn:disabled{
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 .cardLayout{
@@ -300,6 +311,20 @@
     pointer-events: none;
 }
 
+.deleteTitle{
+    margin-top: 20px;
+    color: #101928;
+    font-size: 14px;
+}
+
+
+.deleteDiv{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    align-items: center;
+}
 
 
 /* Mobile */
