@@ -1,0 +1,67 @@
+
+
+.drawer{
+    position: fixed;
+    background: #000000;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    opacity: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    inset: 0px;
+}
+
+.drawerContent{
+    z-index: 40;
+    top: 0px;
+    position: fixed;
+    right: -20rem;
+    width: 500px;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+    transition: all 0.3s ease-in-out;
+    padding: 24px 24px;
+
+}
+
+.titleDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleDiv img{
+    cursor: pointer;
+}
+
+.title{
+    color: #101928;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.drawer.enter_done{
+    opacity: 1;
+    pointer-events: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.drawer.exit{
+    opacity: 0;
+}
+
+
+.drawer.enter_done .drawerContent{
+    right: 0px;
+}
+
+
+.drawer.exit .drawerContent{
+    right: -20rem;
+}

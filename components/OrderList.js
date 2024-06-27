@@ -5,6 +5,8 @@ import vert_icon from '../assets/vert.svg';
 import Image from "next/image";
 import ModalComponent from './Modals/modal';
 import OrderForm from './OrderForm';
+import DrawerComponent from './Drawers/drawer';
+import OrderDetail from './OrderDetail';
 
 const OrderList = () => {
 
@@ -17,6 +19,12 @@ const OrderList = () => {
 
     const [isShow, setIsShow] = useState(false);
     const [isEditShow, setIsEditShow] = useState(false);
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const showOrderinfo = () => {
+        setIsOpen(!isOpen);
+      };
 
     const showModal = () =>{
      setIsShow(!isShow)
@@ -85,6 +93,11 @@ const OrderList = () => {
         return result;
       };
 
+      const handleViewOrder = (id) =>{
+        setOrderId(id)
+        showOrderinfo()
+      }
+
       const handleDeleteOrder = (id) =>{
         setOrderId(id)
         showModal()
@@ -126,6 +139,13 @@ const OrderList = () => {
 
     return ( 
         <>  
+
+        <DrawerComponent title="Order Details" isOpen={isOpen} onClose={showOrderinfo}>
+            <div>
+                <OrderDetail id={orderId} />
+            </div>
+
+        </DrawerComponent>
 
         <ModalComponent
         title="Edit Order"
@@ -243,7 +263,7 @@ const OrderList = () => {
                                       
                                         {openDropdownId === order.id &&  
                                         <ul className={styles.moreDiv}>
-                                            <li>View Order</li>
+                                            <li onClick={() => handleViewOrder(order.id)}>View Order</li>
                                             <li onClick={() => handleEditOrder(order)}>Edit Order</li>
                                             <li onClick={() => handleDeleteOrder(order.id)}>Delete Order</li>
                                         </ul>
