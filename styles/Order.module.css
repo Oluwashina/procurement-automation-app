@@ -142,6 +142,7 @@
 /* table styles */
 .orderTable{
     margin-top: 15px;
+    overflow-x: auto;
 }
 
 .table{
@@ -515,7 +516,22 @@ margin-top: 20px;
 
 /* Mobile */
 @media (max-width: 700px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: start;   
+    }
 
+    .container_cta{
+       margin-top: 20px;
+    }
+
+    .cardLayout{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 30px;
+    }
 }
 
 /* Tablet and Smaller Desktop */

@@ -38,15 +38,5 @@
     "payment_status": "pending",
     "status": "pending",
     "id": 4
-  },
-  {
-    "item_name": "Shoe rack",
-    "customerName": "Shade Johnson",
-    "quantity": 20,
-    "price": 25000,
-    "created_at": "27/06/2024",
-    "payment_status": "pending",
-    "status": "pending",
-    "id": 5
   }
 ]

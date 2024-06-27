@@ -16,6 +16,7 @@ const Layout = ({children}) => {
     return ( 
         <>
           <div className={`${styles.container}`}>
+            
             <div className={styles.sidebar}>
 
               <div className={styles.logo}>
@@ -52,6 +53,7 @@ const Layout = ({children}) => {
               </div>
 
             </div>
+            
             <div className={styles.content}>
               {/* navbar */}
               <div className={styles.navbar}>

@@ -65,3 +65,11 @@
 .drawer.exit .drawerContent{
     right: -20rem;
 }
+
+
+/* Mobile */
+@media (max-width: 700px) {
+    .drawerContent{
+        width: 100%;
+    }
+}
