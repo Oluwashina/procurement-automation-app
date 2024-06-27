@@ -14,7 +14,7 @@ export const OrdersProvider = ({children}) =>{
 
     const fetchOrders = useCallback(async () => {
         try {
-            const response = await fetch('/api/orders');
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`);
             if (response.ok) {
                 const data = await response.json();
                 setOrders(data);

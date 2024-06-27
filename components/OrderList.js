@@ -97,7 +97,7 @@ const OrderList = () => {
       const deletePurchaseOrder = async () =>{
         setLoader(true)
         try {
-            const response = await fetch(`/api/orders/${orderId}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${orderId}`, {
               method: 'DELETE',
             });
       

@@ -33,7 +33,7 @@ const OrderForm = ({order,onClose}) => {
             };
             console.log(updatedOrder)
           try {
-            const response = await fetch(`/api/orders/${order.id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${order.id}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const OrderForm = ({order,onClose}) => {
             };
             console.log(newOrder)
             try {
-                const response = await fetch('/api/orders', {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

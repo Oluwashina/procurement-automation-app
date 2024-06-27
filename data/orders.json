@@ -52,7 +52,7 @@
   {
     "item_name": "Remote",
     "customerName": "Marvellous Ola",
-    "quantity": 300,
+    "quantity": 20,
     "price": 30000,
     "created_at": "27/06/2024",
     "payment_status": "pending",
