@@ -107,22 +107,22 @@ const OrderForm = ({order,onClose}) => {
         <>
          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputDiv}>
-                <label>Item Name</label>
-                <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} />
+                <label htmlFor='itemName'>Item Name</label>
+                <input id="itemName" type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} />
             </div>
 
             <div className={styles.inputDiv}>
-                <label>Customer Name</label>
+                <label htmlFor='customerName'>Customer Name</label>
                 <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)}  />
             </div>
 
             <div className={styles.inputDiv}>
-                <label>Quantity</label>
+                <label htmlFor='quantity'>Quantity</label>
                 <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min={1} />
             </div>
 
             <div className={styles.inputDiv}>
-                <label>Price</label>
+                <label htmlFor='price'>Price</label>
                 <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} min={1} />
             </div>
            

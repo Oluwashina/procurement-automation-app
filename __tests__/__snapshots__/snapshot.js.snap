@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div
+    class="className"
+  >
+    <div
+      class="container"
+    >
+      <div>
+        <h6
+          class="title"
+        >
+          Orders
+        </h6>
+        <p
+          class="subtitle"
+        >
+          Showing data over the last 30 days
+        </p>
+      </div>
+      <div
+        class="container_cta"
+      >
+        <div>
+          <button
+            class="primary_btn"
+          >
+            <img
+              alt="Add Icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            New Order
+          </button>
+        </div>
+        <div>
+          <button
+            class="secondary_btn"
+          >
+            <img
+              alt="Compass Icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            Track Order
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="cardLayout"
+    >
+      <div
+        class="card"
+      >
+        <div>
+          <h6>
+            Total Orders
+          </h6>
+          <h4>
+            93,000
+          </h4>
+          <div
+            class="cardBadgeDiv"
+          >
+            <div
+              class="cardBagde"
+            >
+              <img
+                alt="Arrow Up Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              5%
+            </div>
+            <p>
+              high today
+            </p>
+          </div>
+        </div>
+        <div
+          class="cardIcon"
+        >
+          <img
+            alt="Box Icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+      <div
+        class="card"
+      >
+        <div>
+          <h6>
+            Orders Fulfilled
+          </h6>
+          <h4>
+            80,000
+          </h4>
+          <div
+            class="cardBadgeDiv"
+          >
+            <div
+              class="cardBagde"
+            >
+              <img
+                alt="Arrow Up Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              5%
+            </div>
+            <p>
+              high today
+            </p>
+          </div>
+        </div>
+        <div
+          class="cardIcon"
+        >
+          <img
+            alt="bag Icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+      <div
+        class="card"
+      >
+        <div>
+          <h6>
+            Orders In Transit
+          </h6>
+          <h4>
+            30,000
+          </h4>
+          <div
+            class="cardBadgeDiv"
+          >
+            <div
+              class="cardBagde"
+            >
+              <img
+                alt="Arrow Up Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              5%
+            </div>
+            <p>
+              high today
+            </p>
+          </div>
+        </div>
+        <div
+          class="cardIcon"
+        >
+          <img
+            alt="Lorry Icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=100"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=100 1x, /_next/image?url=%2Fimg.jpg&w=96&q=100 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ordersDiv"
+    >
+      <h6
+        class="ordersTitle"
+      >
+        All Orders
+      </h6>
+      <div
+        class="orderTable"
+      >
+        <table
+          class="table"
+        >
+          <thead>
+            <tr>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Order ID/ Customer
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Item Name
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Item Qty
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Date Added
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Payment Status
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Delivery Status
+              </th>
+              <th
+                class="tablehead"
+                scope="col"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="tablebody"
+          />
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

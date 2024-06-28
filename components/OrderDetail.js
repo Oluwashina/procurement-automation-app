@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const OrderDetail = ({id}) => {
 
-    const [order, setOrder] = useState(null);
+    const [order, setOrder] = useState({});
 
     const formatNumber = (numberToFormat) =>{
         let res = Number(numberToFormat).toLocaleString('en-US', {
@@ -83,7 +83,7 @@ const OrderDetail = ({id}) => {
                 <div className={styles.productDiv}>
                     <div className={styles.productInfoDiv}>
                         <div>
-                            <Image src={item1} quality={100} />
+                            <Image alt="item" src={item1} quality={100} />
                         </div>
                         <div>
                             <p className={styles.productName}>{order? order.item_name: 'N/A'}</p>
@@ -111,7 +111,7 @@ const OrderDetail = ({id}) => {
                     <time>03:00 pm</time>
                    
                 </li>
-                <li class="mb-10 ms-4">
+                <li className="mb-10 ms-4">
                     <div></div>
                     <h3>Order accepted by vendor</h3>
                     <time>03:20pm</time>
