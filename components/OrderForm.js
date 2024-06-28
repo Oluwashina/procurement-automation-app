@@ -41,7 +41,7 @@ const OrderForm = ({order,onClose}) => {
               },
               body: JSON.stringify(updatedOrder),
             });
-      
+    
             if (response.ok) {
                 setLoader(false);
                 onClose();
@@ -49,12 +49,13 @@ const OrderForm = ({order,onClose}) => {
                 toast.success(`Order updated successfully!`);
             } else {
                 setLoader(false);
+                toast.error(`On Vercel, the filesystem is read-only!`);
               const data = await response.json();
               console.log(data.message);
             }
           } catch (err) {
             setLoader(false);
-            console.log('Failed to update order');
+            toast.error(`On Vercel, the filesystem is read-only!`);
           }
 
         }
@@ -91,11 +92,11 @@ const OrderForm = ({order,onClose}) => {
                   toast.success(`Order created successfully!`);
                 } else {
                   setLoader(false);
-                  alert('Failed to create order.');
+                  toast.error(`On Vercel, the filesystem is read-only!`);
                 }
               } catch (error) {
                 setLoader(false);
-                alert('Failed to create order.');
+                toast.error(`On Vercel, the filesystem is read-only!`);
               }
         }
 

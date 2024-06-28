@@ -112,10 +112,11 @@ const OrderList = () => {
                 setLoader(false)
               const data = await response.json();
               console.log(data.message);
+              toast.error(`On Vercel, the filesystem is read-only!`);
             }
           } catch (err) {
             setLoader(false)
-            console.log('Failed to delete order');
+            toast.error(`On Vercel, the filesystem is read-only!`);
           }
       }
       
