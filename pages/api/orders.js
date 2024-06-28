@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       // Send the JSON response
       res.status(200).json(orders);
     } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'On Vercel, the filesystem is read-only' });
     }
   } else if (req.method === 'POST') {
     try {
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       // Send the JSON response
       res.status(201).json(newOrder);
     } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'On Vercel, the filesystem is read-only' });
     }
   } else {
     res.setHeader('Allow', ['GET', 'POST']);

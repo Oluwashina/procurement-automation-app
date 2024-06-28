@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         res.status(404).json({ message: 'Order not found' });
       }
     } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'On Vercel, the filesystem is read-only' });
     }
   } else if (req.method === 'PUT') {
     try {
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         res.status(404).json({ message: 'Order not found' });
       }
     } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'On Vercel, the filesystem is read-only' });
     }
   } else if (req.method === 'DELETE') {
     try {
@@ -52,7 +52,7 @@ export default async function handler(req, res) {
         res.status(404).json({ message: 'Order not found' });
       }
     } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'On Vercel, the filesystem is read-only' });
     }
   } else {
     res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);

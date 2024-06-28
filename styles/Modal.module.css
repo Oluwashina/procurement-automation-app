@@ -33,6 +33,7 @@
     background: white;
     border-radius: 8px;
     padding: 24px 32px;
+    transform: translateY(-200px);
     transition: all 0.3s ease-in-out;
 }
 

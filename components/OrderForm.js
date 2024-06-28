@@ -2,6 +2,7 @@
 import React,{useState} from 'react'
 import styles from "../styles/Order.module.css";
 import { useOrders } from '@/context/OrdersContext';
+import toast from 'react-hot-toast';
 
 const OrderForm = ({order,onClose}) => {
 
@@ -45,7 +46,7 @@ const OrderForm = ({order,onClose}) => {
                 setLoader(false);
                 onClose();
                 await fetchOrders()
-                alert('Order updated successfully!');
+                toast.success(`Order updated successfully!`);
             } else {
                 setLoader(false);
               const data = await response.json();
@@ -87,7 +88,7 @@ const OrderForm = ({order,onClose}) => {
                   setLoader(false);
                   onClose();
                   await fetchOrders();
-                  alert('Order created successfully!');
+                  toast.success(`Order created successfully!`);
                 } else {
                   setLoader(false);
                   alert('Failed to create order.');

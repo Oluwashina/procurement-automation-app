@@ -8,6 +8,7 @@ import OrderForm from './OrderForm';
 import DrawerComponent from './Drawers/drawer';
 import OrderDetail from './OrderDetail';
 import { useOrders } from '@/context/OrdersContext';
+import toast from 'react-hot-toast';
 
 const OrderList = () => {
 
@@ -105,6 +106,7 @@ const OrderList = () => {
                 setLoader(false)
                 setIsShow(!isShow)
                 setOrderId(null)
+                toast.success(`Order deleted successfully!`);
                 await fetchOrders();
             } else {
                 setLoader(false)
